@@ -1,0 +1,93 @@
+<section>
+  <div class="container">
+    <div
+      class="row justify-content-center align-items-center"
+      style="height: 100vh"
+    >
+      <div class="col-md-5 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Register Here</h5>
+            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col mb-3 mt-3">
+                  <label for="firstName" class="form-label">First Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter First Name"
+                    name="firstName"
+                    formControlName="firstName"
+                  />
+                </div>
+                <div class="col mb-3 mt-3">
+                  <label for="lastName" class="form-label">Last Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Last Name"
+                    name="lastName"
+                    formControlName="lastName"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter email"
+                  name="email"
+                  formControlName="email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="mobile"
+                  placeholder="Enter Mobile"
+                  name="mobile"
+                  formControlName="mobile"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pwd"
+                  placeholder="Enter password"
+                  name="pswd"
+                  formControlName="password"
+                />
+              </div>
+
+              <div class="mb-3">
+                <select class="form-select" formControlName="role">
+                  <option>Open this select menu</option>
+                  <option value="User">User</option>
+                  <option value="Admin">Admin</option>
+                </select>
+              </div>
+              <p>Already have account <a routerLink="/login">Login</a></p>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="isLoading"
+              >
+                Create An Account
+              </button>
+            </form>
+            <div *ngIf="isLoading" class="loading-spinner">
+              <p>Loading...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
